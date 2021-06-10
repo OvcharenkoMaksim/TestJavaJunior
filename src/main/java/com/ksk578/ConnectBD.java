@@ -45,7 +45,6 @@ public class ConnectBD {
             password = "Oracle33";
             stend = "TSE-DEMO";
             connectBdUfos(url, username, password, stend);
-            //connectTSE_Demo();
         }
         else if (standSelection == 3) {
             url = "jdbc:postgresql://eb-tse-rls-poi-db.otr.ru:5432/tse_ufos_wl";
@@ -53,13 +52,11 @@ public class ConnectBD {
             password = "Postgres55";
             stend = "TSE-RLS";
             connectBdUfos(url, username, password, stend);
-            //connectTSE_Rls();
         }
 
     }
     // подключаемся к БД выбранной площадки
     protected void connectBdUfos(String url, String username, String password, String stend) throws SQLException, ClassNotFoundException, IOException {
-
         Class.forName("org.postgresql.Driver");
 
         Connection con= DriverManager.getConnection(url, username, password);
