@@ -77,7 +77,6 @@ public class Introducer {
                 System.out.println("Вы ввели заведомо не корректный идентификатор \n И в наказание лишены права вводить новые идентификаторы\n");
                 break;
             }
-            //int idBDint = Integer.parseInt(idBD);
             long idBDlong = Long.parseLong(idBD);
             if (idBD.length() <= 9 &&  idBD.length() >= 7 && idBDlong > 0) {
                 list.add(idBD);
