@@ -15,7 +15,7 @@ public class RequestStructure {
     protected int fiedSel;
     protected int ident;
     ArrayList<String> list = new ArrayList<>();
-
+//формирование итогового запроса к БД
     protected String quest () throws IOException {
         Introducer intr = new Introducer();
         ident = intr.inputer();
@@ -43,7 +43,7 @@ public class RequestStructure {
         //System.out.println(select);
         return select;
         }
-
+//геттер идентификатора количества выводимых полей в ответе от БД
         protected int getfied(){
         return fiedSel;
         }

@@ -32,6 +32,7 @@ public class ConnectBD {
                 a++;
             }
         }
+        //выбор подключения к БД
         if (standSelection == 1) {
             url = "jdbc:postgresql://eb-tse-test-poi-db.otr.ru:5432/UFOS_TSE";
             username = "UFOS_TSE";
@@ -61,10 +62,13 @@ public class ConnectBD {
 
         Connection con= DriverManager.getConnection(url, username, password);
         Statement stmt=con.createStatement();
+        //контроль сбоя в подключении к БД
         if (stmt== null){
             System.out.println("Сбой в подключении к БД");
         }
+
         RequestStructure req = new RequestStructure();
+        //получаем итоговый запрос к БД
         String query = req.quest();
 
         System.out.println("Запрос к БД \n" + query + "\n");
@@ -72,6 +76,7 @@ public class ConnectBD {
         System.out.println( "Время запроса: " + new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime()) );
 
         ResultSet res=stmt.executeQuery(query);
+        // получаем идентификатор количества выводимых полей
         int fieldSelect = req.getfied();
 
         // вывод в консоль для варианта полей краткого и полного

@@ -13,7 +13,7 @@ public class Introducer {
     protected int ident;
     ArrayList<String> list = new ArrayList<>();
     ArrayList<String> list2;
-
+// выбор параметра запроса
     protected int inputer() throws IOException {
         System.out.println("\nВыберите параметр поиска:\nguid - введите 1,\tИдентификатор БД - введите 2");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -33,7 +33,7 @@ public class Introducer {
         }
         return ident;
     }
-
+// ввод выбранного параметра и контроль корректности вводимых данных
     protected ArrayList<String> listing () throws IOException {
         if (ident == 1) {
             System.out.println("Введите guid по порядку:");
@@ -47,7 +47,7 @@ public class Introducer {
         System.out.println("Состав итогового списка\n" + list2 + "\n");
         return list2;
     }
-
+//ввод гуидов
     protected ArrayList<String> fillingGuid() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String guid;
@@ -66,7 +66,7 @@ public class Introducer {
         }
         return list;
     }
-
+// ввод идентификаторов
     protected ArrayList<String> fillingBD() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String idBD;
@@ -91,7 +91,7 @@ public class Introducer {
         }
         return list;
     }
-
+//удаление возможных дублей
     protected ArrayList<String> eliminationOfDuplicates(ArrayList<String> a) {
         Set<String> set = new LinkedHashSet<String>(a);
         list2 = new ArrayList<String>(set);
