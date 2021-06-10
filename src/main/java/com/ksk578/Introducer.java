@@ -43,6 +43,8 @@ public class Introducer {
             fillingBD();
         }
         eliminationOfDuplicates(list);
+        //Отладка программы
+        System.out.println("Состав итогового списка\n" + list2 + "\n");
         return list2;
     }
 
@@ -71,7 +73,10 @@ public class Introducer {
         while (true) {
             idBD = reader.readLine();
             if (idBD.length() == 0) break;
-            if (idBD.length() >= 20) break;;
+            if (idBD.length() >= 19) {
+                System.out.println("Вы ввели заведомо не корректный идентификатор \n И в наказание лишены права вводить новые идентификаторы\n");
+                break;
+            }
             //int idBDint = Integer.parseInt(idBD);
             long idBDlong = Long.parseLong(idBD);
             if (idBD.length() <= 9 &&  idBD.length() >= 7 && idBDlong > 0) {
@@ -80,8 +85,8 @@ public class Introducer {
                 System.out.println("Введите корректный Идентификатор БД");
             }
         }
-        if (list.size() == 0) {
-            System.out.println("Идентификатор БД не введен или введен ошибочный\nРабота программы завершена досрочно\nДо новых встреч!");
+        if (list.size() == 0 && idBD.length() >= 19) {
+            System.out.println("Идентификатор БД не введен\nРабота программы завершена досрочно\nДо новых встреч!");
             System.exit(1);
         }
         return list;
